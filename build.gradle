@@ -30,13 +30,18 @@ test {
     useJUnitPlatform()
     systemProperty "cucumber.filter.tags","@api"
 }
+configurations{
+    CucumberRunTime {
+        extendsFrom testImplementation
+    }
+}
 
 tasks.register('apiTest') {
     dependsOn assemble, testClasses
     doLast {
         javaexec {
             main = "io.cucumber.core.cli.Main"
-            classpath = sourceSets.main.output + sourceSets.test.output
+            classpath = configurations.cucumberRuntime + sourceSets.main.output + sourceSets.test.output
             args = [
                     '--plugin', 'pretty',
                     '--plugin', 'html:reports/cucumber-api-report.html', 'json:reports/cucumber-api.json',
@@ -52,13 +57,18 @@ test {
     useJUnitPlatform()
     systemProperty "cucumber.filter.tags","@web"
 }
+configurations{
+    CucumberRunTime {
+        extendsFrom testImplementation
+    }
+}
 
 tasks.register('webTest') {
     dependsOn assemble, testClasses
     doLast {
         javaexec {
             main = "io.cucumber.core.cli.Main"
-            classpath = sourceSets.main.output + sourceSets.test.output
+            classpath = configurations.cucumberRuntime + sourceSets.main.output + sourceSets.test.output
             args = [
                     '--plugin', 'pretty',
                     '--plugin', 'html:reports/cucumber-web-report.html', 'json:reports/cucumber-web.json',
