@@ -1,7 +1,7 @@
 # Demo Blaze Web UI and Gorest API Automation Tests Framework
 
 This repository contains two automation tests:
-- **First**: the web UI automation test project for Demo Blaze Product Store e-commerce website. It is built using Cucumber, WebDriverManager, and Selenium, and aims to ensure the functionality of the homepage, login page, product page, about page, signup page, contact page and cart. The repository includes source code for the project, POM implementation, Gherkin test cases, and Cucumber implementation, along with sample test cases.
+- **First**: the web UI automation test project for [Demo Blaze Product Store]([https://www.gorest.co.in/](https://www.demoblaze.com)) e-commerce website. It is built using Cucumber, WebDriverManager, and Selenium, and aims to ensure the functionality of the homepage, login page, product page, about page, signup page, contact page and cart. The repository includes source code for the project, POM implementation, Gherkin test cases, and Cucumber implementation, along with sample test cases.
 - **Second**: the API automation test project for Gorest. It is built to test the [Gorest API](https://www.gorest.co.in/) using positive test cases, negative test cases, and boundary tests. It leverages various dependencies like RestAssured, Cucumber, Assertion, JSON and JSONSchemaValidator for API testing and validation.
 
 Both projects are written in Java programming language, using the JUnit testing framework and Gradle as the build tool.
