@@ -30,11 +30,6 @@ test {
     useJUnitPlatform()
     systemProperty "cucumber.filter.tags","@api"
 }
-configurations{
-    CucumberRunTime {
-        extendsFrom testImplementation
-    }
-}
 
 tasks.register('apiTest') {
     dependsOn assemble, testClasses
@@ -56,11 +51,6 @@ tasks.register('apiTest') {
 test {
     useJUnitPlatform()
     systemProperty "cucumber.filter.tags","@web"
-}
-configurations{
-    CucumberRunTime {
-        extendsFrom testImplementation
-    }
 }
 
 tasks.register('webTest') {
