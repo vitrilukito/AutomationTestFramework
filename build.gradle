@@ -41,7 +41,7 @@ tasks.register('apiTest') {
     doLast {
         javaexec {
             main = "io.cucumber.core.cli.Main"
-            classpath = configurations.cucumberRuntime + sourceSets.main.output + sourceSets.test.output
+            classpath = sourceSets.main.output + sourceSets.test.output
             args = [
                     '--plugin', 'pretty',
                     '--plugin', 'html:reports/cucumber-api-report.html', 'json:reports/cucumber-api.json',
@@ -68,7 +68,7 @@ tasks.register('webTest') {
     doLast {
         javaexec {
             main = "io.cucumber.core.cli.Main"
-            classpath = configurations.cucumberRuntime + sourceSets.main.output + sourceSets.test.output
+            classpath = sourceSets.main.output + sourceSets.test.output
             args = [
                     '--plugin', 'pretty',
                     '--plugin', 'html:reports/cucumber-web-report.html', 'json:reports/cucumber-web.json',
