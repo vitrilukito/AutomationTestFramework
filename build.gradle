@@ -28,10 +28,10 @@ dependencies {
 
 test {
     useJUnitPlatform()
-    systemProperty "cucumber.filter.tags", System.getProperty("cucumber.filter.tags")
+    systemProperty "cucumber.filter.tags","@api"
 }
 configurations{
-    cucumberRuntime{
+    CucumberRunTime {
         extendsFrom testImplementation
     }
 }
@@ -55,10 +55,10 @@ tasks.register('apiTest') {
 
 test {
     useJUnitPlatform()
-    systemProperty "cucumber.filter.tags", System.getProperty("cucumber.filter.tags")
+    systemProperty "cucumber.filter.tags","@web"
 }
 configurations{
-    cucumberRuntime{
+    CucumberRunTime {
         extendsFrom testImplementation
     }
 }

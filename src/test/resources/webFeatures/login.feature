@@ -39,8 +39,8 @@ Feature: Test Product Store Login Page Usability
     Then user will see the carousel of the featured products
     And user clicks Login button
     Then the Login form will appear
-    And user fills in the username "AlexanderTheGreat" in the login form
-    And user fills in the password "e736473y84" in the login form
+    And user fills in the username "KingNebuchadnezzar" in the login form
+    And user fills in the password "jfihruf37832" in the login form
     And user clicks the Login button
     Then a pop-up message "User does not exist." will appear
 
