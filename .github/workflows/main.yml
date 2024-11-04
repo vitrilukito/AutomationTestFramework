@@ -63,6 +63,11 @@ jobs:
    - name: Setup Gradlew
      run: chmod +x gradlew
 
+   - name: Setup ChromeDriver
+     uses: electronuserland/action-chromedriver@v1
+     with: 
+      chrome-version: 'latest'
+
    - name: Run Web Automation Test
      run: ./gradlew webTest
 
