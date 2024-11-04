@@ -58,15 +58,6 @@ tasks.register('cucumbertest') {
 
 
 tasks.register('apiTest') {
-    dependsOn assemble, testClasses
-    doLast {
-        javaexec {
-            mainClass = "io.cucumber.core.cli.Main"
-            classpath = configurations.cucumberRuntime + sourceSets.main.output + sourceSets.test.output
-            args = [
-                    '--plugin', 'pretty',
-                    '--plugin', 'html:reports/cucumber-api-report.html', 'json:reports/cucumber-api.json'
-                    '--glue', 'stepDef',
                     '--tags',"@api",
                     'src/test/resources/apiFeatures']
         }
@@ -74,15 +65,6 @@ tasks.register('apiTest') {
 }
 
 tasks.register('webTest') {
-    dependsOn assemble, testClasses
-    doLast {
-        javaexec {
-            mainClass = "io.cucumber.core.cli.Main"
-            classpath = configurations.cucumberRuntime + sourceSets.main.output + sourceSets.test.output
-            args = [
-                    '--plugin', 'pretty',
-                    '--plugin', 'html:reports/cucumber-web-report.html', 'json:reports/cucumber-web.json'
-                    '--glue', 'stepDef',
                     '--tags', "@web",
                     'src/test/resources/webFeatures']
         }
