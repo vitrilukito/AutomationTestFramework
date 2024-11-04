@@ -28,38 +28,48 @@ dependencies {
 
 test {
     useJUnitPlatform()
-    systemProperty "cucumber.filter.tags","@api"
+    systemProperty "cucumber.filter.tags", System.getProperty("cucumber.filter.tags")
 }
-configurations{
-    CucumberRunTime {
+
+configurations {
+    cucumberRuntime {
         extendsFrom testImplementation
     }
 }
+
+def tags = (findProperty('tags') == null) ? 'not @exclude' : findProperty('tags') + ' and not @exclude'
+
+tasks.register('cucumbertest') {
+    dependsOn assemble, testClasses
+    doLast {
+        javaexec {
+            mainClass = "io.cucumber.core.cli.Main"
+            classpath = configurations.cucumberRuntime + sourceSets.main.output + sourceSets.test.output
+            args = [
+                    '--plugin', 'pretty',
+                    '--plugin', 'html:reports/automation-report.html',
+                    '--plugin', 'json:reports/automation-report.json',
+                    '--glue', 'stepDef',
+                    '--tags',"${tags}",
+                    'src/test/java/feature']
+        }
+    }
+}
+
 
 tasks.register('apiTest') {
     dependsOn assemble, testClasses
     doLast {
         javaexec {
-            main = "io.cucumber.core.cli.Main"
+            mainClass = "io.cucumber.core.cli.Main"
             classpath = configurations.cucumberRuntime + sourceSets.main.output + sourceSets.test.output
             args = [
                     '--plugin', 'pretty',
-                    '--plugin', 'html:reports/cucumber-api-report.html', 'json:reports/cucumber-api.json',
+                    '--plugin', 'html:reports/cucumber-api-report.html', 'json:reports/cucumber-api.json'
                     '--glue', 'stepDef',
-                    '--tags', '@api',
-                    'src/test/resources/apiFeatures'
-            ]
+                    '--tags',"@api",
+                    'src/test/resources/apiFeatures']
         }
-    }
-}
-
-test {
-    useJUnitPlatform()
-    systemProperty "cucumber.filter.tags","@web"
-}
-configurations{
-    CucumberRunTime {
-        extendsFrom testImplementation
     }
 }
 
@@ -67,15 +77,14 @@ tasks.register('webTest') {
     dependsOn assemble, testClasses
     doLast {
         javaexec {
-            main = "io.cucumber.core.cli.Main"
+            mainClass = "io.cucumber.core.cli.Main"
             classpath = configurations.cucumberRuntime + sourceSets.main.output + sourceSets.test.output
             args = [
                     '--plugin', 'pretty',
-                    '--plugin', 'html:reports/cucumber-web-report.html', 'json:reports/cucumber-web.json',
+                    '--plugin', 'html:reports/cucumber-web-report.html', 'json:reports/cucumber-web.json'
                     '--glue', 'stepDef',
-                    '--tags', '@web',
-                    'src/test/resources/webFeatures'
-            ]
+                    '--tags', "@web",
+                    'src/test/resources/webFeatures']
         }
     }
 }
