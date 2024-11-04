@@ -31,7 +31,7 @@ test {
     systemProperty "cucumber.filter.tags","@api"
 }
 configurations{
-    CucumberRunTime {
+    cucumberRuntime{
         extendsFrom testImplementation
     }
 }
