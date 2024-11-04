@@ -55,18 +55,3 @@ tasks.register('cucumbertest') {
         }
     }
 }
-
-
-tasks.register('apiTest') {
-                    '--tags',"@api",
-                    'src/test/resources/apiFeatures']
-        }
-    }
-}
-
-tasks.register('webTest') {
-                    '--tags', "@web",
-                    'src/test/resources/webFeatures']
-        }
-    }
-}
