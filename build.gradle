@@ -58,7 +58,7 @@ test {
     systemProperty "cucumber.filter.tags","@web"
 }
 configurations{
-    CucumberRunTime {
+    cucumberRuntime {
         extendsFrom testImplementation
     }
 }
