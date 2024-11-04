@@ -115,8 +115,9 @@ public class WebStep {
     }
 
     @And("user clicks Login button")
-    public void userClicksLoginButton() {
+    public void userClicksLoginButton() throws InterruptedException {
         webPage.clickLogin();
+        Thread.sleep(2000);
     }
 
     @Then("the Login form will appear")
