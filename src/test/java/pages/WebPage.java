@@ -182,7 +182,9 @@ public class WebPage {
     }
 
     public void samsungGalaxySixTitle() {
-        driver.findElement(galaxy_s6_title).click();
+        WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(10));
+        WebElement galaxySixTitle = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[normalize-space()='Samsung galaxy s6']")));
+        galaxySixTitle.click();
     }
 
     public void galaxySixDetails() {
@@ -314,7 +316,7 @@ public class WebPage {
     }
 
     public void logoutButton() {
-        WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(100));
+        WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(10));
         WebElement logoutButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[@id='logout2']")));
         logoutButton.click();
     }
