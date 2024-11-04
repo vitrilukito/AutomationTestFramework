@@ -33,8 +33,9 @@ public class WebStep {
     }
 
     @Then("all phones will be displayed")
-    public void allPhonesWillBeDisplayed() {
+    public void allPhonesWillBeDisplayed() throws InterruptedException {
         webPage.allPhonesDisplayed();
+        Thread.sleep(2000);
     }
 
     @And("user clicks Laptops category")
