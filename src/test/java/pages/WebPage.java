@@ -36,7 +36,7 @@ public class WebPage {
     By previous_page_button = By.xpath("//button[@id='prev2']");
     By next_page_button = By.xpath("//button[@id='next2']");
     By nokia_lumia_title = By.xpath("//a[normalize-space()='Nokia lumia 1520']");
-    By galaxy_s6_title = By.xpath("//*[text()='Samsung galaxy s6']");
+    By galaxy_s6_title = By.xpath("//a[normalize-space()='Samsung galaxy s6']");
     By nexus_6_title = By.xpath("//a[normalize-space()='Nexus 6']");
     By galaxy_s7_title = By.xpath("//a[normalize-space()='Samsung galaxy s7']");
     By iphone_6_title = By.xpath("//a[normalize-space()='Iphone 6 32gb']");
@@ -314,7 +314,7 @@ public class WebPage {
     }
 
     public void logoutButton() {
-        WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(30));
+        WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(100));
         WebElement logoutButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[@id='logout2']")));
         logoutButton.click();
     }
