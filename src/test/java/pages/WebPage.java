@@ -182,9 +182,7 @@ public class WebPage {
     }
 
     public void samsungGalaxySixTitle() {
-        WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(10));
-        WebElement galaxySixTitle = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[normalize-space()='Samsung galaxy s6']")));
-        galaxySixTitle.click();
+        driver.findElement(galaxy_s6_title).click();
     }
 
     public void galaxySixDetails() {
