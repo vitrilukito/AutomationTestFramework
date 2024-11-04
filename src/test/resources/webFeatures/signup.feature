@@ -6,7 +6,7 @@ Feature: Test Product Store Signup Page Usability
     Then user will see the carousel of the featured products
     And user clicks Signup button
     Then the Signup form will appear
-    And user fills in the username "WeWillTryTestNewUserNow"
+    And user fills in the username "QAEngineerNovember"
     And user fills in the password "r736r7e3hbf"
     And user clicks the Sign up button
     Then a pop-up message "Sign up successful." will appear
