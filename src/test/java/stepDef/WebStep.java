@@ -168,8 +168,9 @@ public class WebStep {
 
 
     @And("user will click on the title of Samsung galaxy six")
-    public void userWillClickOnTheTitleOfSamsungGalaxySix() {
+    public void userWillClickOnTheTitleOfSamsungGalaxySix() throws InterruptedException {
         webPage.samsungGalaxySixTitle();
+        Thread.sleep(2000);
     }
 
     @Then("user will be directed to Samsung galaxy six details page")
